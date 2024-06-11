@@ -1,38 +1,20 @@
 <script setup>
+  import FormularioItem from './components/formilario-item.vue'
+  import useClima from './composable/useClima';
 
+  const {obtenerClima} = useClima()
 </script>
 
 <template>
-<h1 class="text-center">Hola
-  
-</h1>
+  <h1 class="titulo">Buscador De Climas</h1>
+  <div class="contenedor buscador-clima">
+    <FormularioItem
+    @obtner-clima="obtenerClima"
+    />
+
+  </div>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-}
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
 </style>
