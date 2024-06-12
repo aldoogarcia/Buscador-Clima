@@ -15,8 +15,6 @@ export default function useClima(){
         const url=`http://api.openweathermap.org/geo/1.0/direct?q=${ciudad},${pais}&limit=2&appid=${keyApi}`
         const {data}= await axios(url)
         const {lat, lon }= data[0]
-        console.log(lat)
-        console.log(lon)
         //OBTIENE EL CLIMA Current Weather Data
         const url2=`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${keyApi}`
         const {data:dataClima}=await axios(url2)
@@ -27,10 +25,15 @@ export default function useClima(){
         return Object.values(climaObjt.value).length>0
     })
 
+    const covierteGrados=(grados)=>{
+        return parseInt(grados-273.15)
+    }
+
     return{
         obtenerClima,
         climaObjt,
         muestraResutado,
+        covierteGrados,
 
     }
 }

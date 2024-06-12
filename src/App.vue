@@ -14,6 +14,7 @@
     />
     <ResultadosItem 
     v-if="muestraResutado"
+    :clima="climaObjt"
     />
 
   </div>
