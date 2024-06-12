@@ -1,8 +1,9 @@
 <script setup>
   import FormularioItem from './components/formilario-item.vue'
   import useClima from './composable/useClima';
+  import ResultadosItem from './components/resultados-item.vue'
 
-  const {obtenerClima} = useClima()
+  const {obtenerClima,climaObjt,muestraResutado} = useClima()
 </script>
 
 <template>
@@ -10,6 +11,9 @@
   <div class="contenedor buscador-clima">
     <FormularioItem
     @obtner-clima="obtenerClima"
+    />
+    <ResultadosItem 
+    v-if="muestraResutado"
     />
 
   </div>
