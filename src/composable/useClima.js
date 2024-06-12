@@ -3,6 +3,7 @@ import axios from 'axios';
 
 const climaObjt=ref({})
 const spiner=ref(false)
+const error = ref('')
 
 export default function useClima(){
 
@@ -10,6 +11,7 @@ export default function useClima(){
     const obtenerClima=async ({ciudad,pais})=>{
         spiner.value=true;
         climaObjt.value={}
+        error.value=''
         //OBTIENE LLAVE DE API
         const keyApi=import.meta.env.VITE_API_KEY;
 
@@ -25,7 +27,7 @@ export default function useClima(){
             climaObjt.value=dataClima
 
         }catch(e){
-            console.log(e)
+            error.value='Ciudad no encontrada'
         }finally{
             spiner.value=false;
         }
@@ -45,5 +47,6 @@ export default function useClima(){
         muestraResutado,
         covierteGrados,
         spiner,
+        error
     }
 }

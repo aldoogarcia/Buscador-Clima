@@ -3,8 +3,8 @@
   import useClima from './composable/useClima';
   import ResultadosItem from './components/resultados-item.vue'
   import SpinnerItem from './components/spinner-item.vue'
-
-  const {obtenerClima,climaObjt,muestraResutado,spiner} = useClima()
+  import AlertaItem from './components/alerta-item.vue';
+  const {obtenerClima,climaObjt,muestraResutado,spiner,error} = useClima()
 </script>
 
 <template>
@@ -13,13 +13,16 @@
     <FormularioItem
     @obtner-clima="obtenerClima"
     />
+    
     <SpinnerItem
     v-if="spiner"
     />
+    
     <ResultadosItem 
     v-if="muestraResutado"
     :clima="climaObjt"
     />
+    <AlertaItem>{{ error }}</AlertaItem>
 
   </div>
 </template>
