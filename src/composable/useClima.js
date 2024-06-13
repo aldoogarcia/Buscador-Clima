@@ -18,7 +18,7 @@ export default function useClima(){
         try{
             //CREA LA URL DINAMICA
             //SACADA DE GEOCODIN
-            const url=`http://api.openweathermap.org/geo/1.0/direct?q=${ciudad},${pais}&limit=2&appid=${keyApi}`
+            const url=`https://api.openweathermap.org/geo/1.0/direct?q=${ciudad},${pais}&limit=2&appid=${keyApi}`
             const {data}= await axios(url)
             const {lat, lon }= data[0]
             //OBTIENE EL CLIMA Current Weather Data
